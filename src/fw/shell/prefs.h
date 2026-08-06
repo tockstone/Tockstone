@@ -248,6 +248,10 @@ bool display_orientation_is_left(void);
 void display_orientation_set_left(bool left);
 #endif
 
+// The charge limit percent is required by services/battery/battery_charge_limit.c.
+// CHARGE_LIMIT_PCT_DISABLED (0) means no limit is applied.
+uint8_t shell_prefs_get_charge_limit_pct(void);
+
 GColor shell_prefs_get_theme_highlight_color(void);
 void shell_prefs_set_theme_highlight_color(GColor color);
 
