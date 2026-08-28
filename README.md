@@ -3,14 +3,21 @@
 </p>
 
 <p align="center">
- PebbleOS 
+ Tockstone 
 </p>
 
 <p align="center">
-  <a href="https://github.com/coredevices/PebbleOS/actions/workflows/build-firmware.yml?query=branch%3Amain"><img src="https://github.com/coredevices/PebbleOS/actions/workflows/build-firmware.yml/badge.svg?branch=main"></a>
+  <a href="https://github.com/tockstone/Tockstone/actions/workflows/build-firmware.yml?query=branch%3Amain"><img src="https://github.com/tockstone/Tockstone/actions/workflows/build-firmware.yml/badge.svg?branch=main"></a>
   <a href="https://pebbleos-core.readthedocs.io/en/latest"><img src="https://readthedocs.org/projects/pebbleos-core/badge/?version=latest&style=flat"></a>
   <a href="https://forum.repebble.com/"><img src="https://img.shields.io/discourse/posts?server=https%3A%2F%2Fforum.repebble.com&label=forum"></a>
 </p>
+
+Tockstone is a fully open source fork of
+[PebbleOS](https://github.com/coredevices/PebbleOS), the operating system for
+Pebble smartwatches. The fork exists to keep the whole Pebble ecosystem open
+source and to land useful work while it waits upstream, starting with battery
+and charging improvements for the Pebble Time 2. It is a complete fork that
+tracks upstream and carries all release branches and tags.
 
 ## Resources
 
@@ -23,8 +30,9 @@ Here's a quick summary of resources to help you find your way around:
 
 ### Code and Development
 
-- ⌚ [Source Code Repository](https://github.com/coredevices/PebbleOS)
-- 🐛 [Issue Tracker](https://github.com/coredevices/PebbleOS/issues)
+- ⌚ [Source Code Repository](https://github.com/tockstone/Tockstone)
+- 🐛 [Issue Tracker](https://github.com/tockstone/Tockstone/issues)
+- 🔼 [Upstream PebbleOS](https://github.com/coredevices/PebbleOS)
 - 🤝 [Contribution Guide](CONTRIBUTING.md)
 
 ### Community and Support
