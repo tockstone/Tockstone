@@ -58,7 +58,7 @@ class PebbleBundle(object):
         self.has_jsapp = False
         self.has_loghash = False
         self.has_children = False
-        self.has_license = False
+        self.license_names = set()
         self.has_jstooling = False
 
     def add_firmware(
@@ -149,13 +149,14 @@ class PebbleBundle(object):
         return True
 
     def add_license(self, license_path):
-        if self.has_license:
-            raise Exception("Added multiple license to a single bundle")
+        license_name = os.path.basename(license_path)
+        if license_name in self.license_names:
+            raise Exception("Added duplicate license %s to a bundle" % license_name)
 
         check_paths(license_path)
         self.bundle_files.append(license_path)
 
-        self.has_license = True
+        self.license_names.add(license_name)
         return True
 
     def add_jstooling(self, jstooling_path, bytecode_version):

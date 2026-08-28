@@ -749,8 +749,8 @@ def _make_bundle(ctx, fw_bin_path, fw_type='normal', board=None, resource_path=N
         loghash_dict = ctx.path.get_bld().make_node(LOGHASH_OUT_PATH).abspath()
         b.add_loghash(loghash_dict)
 
-    # Add a LICENSE.txt file
     b.add_license('LICENSE')
+    b.add_license('LICENSE.Apache-2.0')
 
     if fw_type == 'normal':
         layouts_node = ctx.path.get_bld().find_node('resources/layouts.json.auto')
