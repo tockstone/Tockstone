@@ -2,6 +2,14 @@
 
 Thank you for your interest in contributing to PebbleOS! We welcome contributions of all kinds, including bug fixes, new features, documentation improvements, and more. To ensure a smooth contribution process, please follow the guidelines outlined below.
 
+## Licensing
+
+This project is licensed under the European Union Public Licence v. 1.2
+(EUPL-1.2). New files are contributed under EUPL-1.2 and must carry an
+`SPDX-License-Identifier: EUPL-1.2` header. Files inherited from upstream
+PebbleOS keep their Apache License 2.0 headers, and changes to those files
+remain under Apache 2.0 as the license indicated in the file.
+
 ## Developer Certification of Origin (DCO)
 
 To make a good faith effort to ensure licensing criteria are met, this
