@@ -89,7 +89,7 @@ jobs:
             done
             if $skip; then continue; fi
 
-            if ! head -10 "$file" | grep -q "SPDX-License-Identifier: Apache-2.0"; then
+            if ! head -10 "$file" | grep -qE "SPDX-License-Identifier: (EUPL-1\.2|Apache-2\.0)"; then
               # Resolve the file's pre-PR identity: either same path or
               # the source of a rename.
               origin="$file"
@@ -99,27 +99,29 @@ jobs:
               fi
 
               # If the file (or its rename source) existed before this PR and
-              # already lacked Apache-2.0, skip it as pre-existing.
+              # already lacked a recognized license, skip it as pre-existing.
               if [ -n "$origin" ] && git cat-file -e "$base":"$origin" 2>/dev/null; then
                 if ! git show "$base":"$origin" | head -10 \
-                    | grep -q "SPDX-License-Identifier: Apache-2.0"; then
-                  echo "::notice file=$file::Skipping: pre-existing non-Apache-2.0 license"
+                    | grep -qE "SPDX-License-Identifier: (EUPL-1\.2|Apache-2\.0)"; then
+                  echo "::notice file=$file::Skipping: pre-existing unrecognized license"
                   continue
                 fi
               fi
-              echo "::error file=$file::Missing 'SPDX-License-Identifier: Apache-2.0' header"
+              echo "::error file=$file::Missing SPDX license header (EUPL-1.2 for new files, Apache-2.0 on inherited ones)"
               failed_files+=("$file")
             fi
           done
 
           if [ ${#failed_files[@]} -ne 0 ]; then
             echo ""
-            echo "${#failed_files[@]} file(s) missing Apache-2.0 SPDX license header:"
+            echo "${#failed_files[@]} file(s) missing a recognized SPDX license header:"
             for f in "${failed_files[@]}"; do
               echo "  - $f"
             done
             echo ""
-            echo "Expected within the first 10 lines:"
+            echo "Expected within the first 10 lines, EUPL-1.2 for new files:"
+            echo "  /* SPDX-License-Identifier: EUPL-1.2 */"
+            echo "or Apache-2.0 on files inherited from upstream:"
             echo "  /* SPDX-License-Identifier: Apache-2.0 */"
             exit 1
           fi
