@@ -39,3 +39,9 @@ Here's a quick summary of resources to help you find your way around:
 
 - 💬 [Discord](https://discordapp.com/invite/aRUAYFN)
 - 👥 [Discussions](https://github.com/coredevices/PebbleOS/discussions)
+
+## License
+
+This project is licensed under the [European Union Public Licence v. 1.2](LICENSE).
+Code inherited from upstream [PebbleOS](https://github.com/coredevices/PebbleOS) remains available under the Apache License 2.0, retained as [LICENSE.Apache-2.0](LICENSE.Apache-2.0).
+Components under `third_party` keep their own licenses.
